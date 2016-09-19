@@ -27,8 +27,8 @@ public class CategoriaDao {
 	}
 
 	@Transactional
-	public void excluir(Categoria categoria) {
-		Categoria merge = entityManager.merge(categoria);
+	public void excluir(Integer codigo) {
+		Categoria merge = entityManager.merge(new Categoria(codigo));
 		entityManager.remove(merge);
 	}
 
@@ -36,5 +36,11 @@ public class CategoriaDao {
 	public List<Categoria> buscar(Categoria categoria) {
 		Query query = entityManager.createQuery("from Categoria");
 		return query.getResultList();
+	}
+
+	public Categoria buscarPorId(Integer codigo) {
+		Query query = entityManager.createQuery("from Categoria where codigo = :codigo");
+		query.setParameter("codigo", codigo);
+		return (Categoria)query.getSingleResult();
 	}
 }

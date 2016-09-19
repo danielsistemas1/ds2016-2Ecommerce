@@ -10,7 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 @Entity
 @Table(name="TB_CATEGORIA")
 public class Categoria implements Serializable {
@@ -25,8 +27,8 @@ public class Categoria implements Serializable {
 	@Column(name="CD_CATEGORIA")
 	private Integer codigo;
 	
-	@OneToMany(mappedBy="categoria")
-	private List<Produto> produtos;
+	//@OneToMany(mappedBy="categoria")
+	//private List<Produto> produtos;
 	
 	@Column(name="NM_CATEGORIA")
 	private String nome;
@@ -38,6 +40,10 @@ public class Categoria implements Serializable {
 
 	public Categoria() {
 		super();
+	}
+
+	public Categoria(Integer codigo) {
+		this.codigo = codigo;
 	}
 
 	public Integer getCodigo() {
@@ -52,13 +58,13 @@ public class Categoria implements Serializable {
 		return nome;
 	}
 
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
+	//public List<Produto> getProdutos() {
+	//	return produtos;
+	//}
 
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
-	}
+	//public void setProdutos(List<Produto> produtos) {
+	//	this.produtos = produtos;
+	//}
 
 	public void setNome(String nome) {
 		this.nome = nome;

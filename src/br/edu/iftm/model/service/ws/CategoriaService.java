@@ -1,4 +1,4 @@
-package br.edu.iftm.model.service;
+package br.edu.iftm.model.service.ws;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import javax.jws.WebService;
 
 import br.edu.iftm.model.dao.CategoriaDao;
 import br.edu.iftm.model.domain.Categoria;
+import br.edu.iftm.model.service.ICategoriaService;
 
 @WebService(serviceName="ws/categoria")
 public class CategoriaService implements ICategoriaService {
@@ -30,8 +31,8 @@ public class CategoriaService implements ICategoriaService {
 	
 	@Override
 	@WebMethod
-	public void excluir(@WebParam(name="categoria")Categoria categoria){
-		categoriaDao.excluir(categoria);
+	public void excluir(@WebParam(name="codigo")Integer codigo){
+		categoriaDao.excluir(codigo);
 	}
 	
 	@Override

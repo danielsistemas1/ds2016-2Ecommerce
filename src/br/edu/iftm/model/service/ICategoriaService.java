@@ -10,7 +10,7 @@ public interface ICategoriaService {
 
 	void atualizar(Categoria categoria);
 
-	void excluir(Categoria categoria);
+	void excluir(Integer codigo);
 
 	List<Categoria> buscar(Categoria categoria);
 
